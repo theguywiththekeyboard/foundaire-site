@@ -13,7 +13,18 @@
   <meta name="theme-color" content="#111827" />
   <link rel="icon" href="/favicon.ico" />
   <style>
-    :root{--bg:#0b1020;--ink:#e5e7eb;--muted:#b7c0d1;--brand:#7E64ED;--card:#0f1530;--line:#1f2a44;--ok:#22c55e;--warn:#eab308}
+    :root{
+      --bg:#0b1020;             /* keep */
+      --card:#101733;           /* + subtle lift for card contrast */
+      --ink:#E9ECF2;            /* main text slightly brighter */
+      --muted:#C7D0E2;          /* better readability on dark */
+      --line:#2A365A;           /* clearer borders/dividers */
+      --brand:#7E64ED;          /* keep brand */
+      --brand-strong:#9B87FF;   /* hover/active on brand */
+      --brand-weak:#BDB2FF22;   /* translucent backgrounds/pills */
+      --ok:#22C55E;             /* keep */
+      --warn:#EAB308;           /* keep */
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6;color:var(--ink);background:radial-gradient(1200px 600px at 70% -10%,rgba(126,100,237,.15),transparent),radial-gradient(900px 500px at 0% 0%,rgba(86,179,255,.12),transparent),var(--bg)}
@@ -128,6 +139,61 @@
       .hero{padding:96px 0 56px}
       .btn,.cta{padding:14px 18px}
     }
+
+        /* === Minimal CSS patch (drop-in) === */
+    
+    /* Palette tweaks + new tokens */
+    :root{
+      --card:#101733;           /* slightly brighter card surface */
+      --ink:#E9ECF2;            /* main text a bit brighter */
+      --muted:#C7D0E2;          /* better readability for muted text */
+      --line:#2A365A;           /* clearer borders/dividers */
+      --brand-strong:#9B87FF;   /* focus/hover accent */
+      --brand-weak:#BDB2FF22;   /* translucent brand wash */
+    }
+
+    /* Text */
+    body { color: var(--ink); }
+    .muted { color: var(--muted); }
+    
+    /* Surfaces (cards, inputs) */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border-color: var(--line);
+    }
+    input, textarea {
+      background:#0A0F20;
+      border-color:var(--line);
+      color:var(--ink);
+    }
+    
+    /* Buttons & links */
+    .btn.primary{
+      border-color: var(--brand);
+      background: linear-gradient(180deg, rgba(126,100,237,.28), rgba(126,100,237,.14));
+    }
+    .btn.primary:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px rgba(126,100,237,.18);
+    }
+    a:hover{
+      color: var(--brand-strong);
+      text-decoration: underline;
+    }
+    
+    /* Focus visibility */
+    a:focus-visible,.btn:focus-visible,.cta:focus-visible{
+      outline:2px solid var(--brand-strong);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+    
+    /* Optional: subtle brand wash on highlighted pricing card */
+    .plan[style*="border-color"]{
+      background: linear-gradient(180deg, var(--brand-weak), rgba(255,255,255,.02));
+    }
+
+    
   </style>
   <!-- Optional: Analytics (uncomment and replace) -->
   <!-- <script defer data-domain="foundaire.com" src="https://plausible.io/js/script.js"></script> -->
