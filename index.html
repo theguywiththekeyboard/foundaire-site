@@ -62,6 +62,9 @@
 
     .note{font-size:12px;color:var(--muted)}
     .tag{display:inline-block;font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+    /* Toast notification */
+    .toast{position:fixed;right:20px;bottom:20px;background:rgba(15,21,48,.95);color:#e5e7eb;border:1px solid #1f2a44;padding:12px 14px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px);transition:opacity .25s ease, transform .25s ease;z-index:1000}
+    .toast.show{opacity:1;transform:translateY(0)}
   </style>
   <!-- Optional: Analytics (uncomment and replace) -->
   <!-- <script defer data-domain="foundaire.com" src="https://plausible.io/js/script.js"></script> -->
@@ -284,6 +287,26 @@
   </footer>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear();
+  // Toast helper
+  function showToast(message, timeout=4000){
+    let t = document.createElement('div');
+    t.className = 'toast';
+    t.setAttribute('role','status');
+    t.setAttribute('aria-live','polite');
+    t.textContent = message;
+    document.body.appendChild(t);
+    // force style calc
+    requestAnimationFrame(()=>{ t.classList.add('show'); });
+    // auto-hide
+    const close = ()=>{
+      t.classList.remove('show');
+      setTimeout(()=> t.remove(), 300);
+    };
+    setTimeout(close, timeout);
+    // allow click to dismiss
+    t.addEventListener('click', close);
+  }
+
   // AJAX form submit for Formspree
   const form = document.getElementById('contactForm');
   if (form) {
@@ -297,12 +320,16 @@
         if (res.ok) {
           form.reset();
           status.textContent = 'Thanks! Your message was sent.';
+          showToast('✅ Message sent. We\'ll get back within 24 hours.');
         } else {
           const j = await res.json().catch(()=>({}));
-          status.textContent = j?.errors?.[0]?.message || 'Something went wrong. Please email hello@foundaire.com.';
+          const msg = j?.errors?.[0]?.message || 'Something went wrong. Please email hello@foundaire.com.';
+          status.textContent = msg;
+          showToast('⚠️ '+msg);
         }
       } catch (err) {
         status.textContent = 'Network error. Please try again later.';
+        showToast('⚠️ Network error. Please try again later.');
       }
     });
   }
