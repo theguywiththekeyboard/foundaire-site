@@ -203,6 +203,47 @@
       margin-left:2px;       /* nudges the pill off the edge a touch more */
     }
 
+
+
+
+    /* MOBILE VERSION STYLE CORRECTIONS */
+        /* === Mobile UX patch (non-desktop only) === */
+    
+    /* Anchor offset so titles don't hide under sticky header */
+    @media (max-width: 640px){
+      section{ scroll-margin-top: 76px; }
+    }
+    
+    /* Comfortable tap targets + tighter mobile rhythm */
+    @media (max-width: 640px){
+      .btn, .cta{ min-height:48px; padding:14px 18px; line-height:1.2; }
+      section{ padding:64px 0; }
+      .hero{ padding:104px 0 64px; }
+      .grid{ gap:18px; }
+    }
+    
+    /* Slightly brighter muted text on small OLED screens for legibility */
+    @media (max-width: 640px){
+      .muted{ color:#c9d2e4; }
+    }
+    
+    /* Toast: keep above iOS/Android safe areas and keyboard */
+    @media (max-width: 640px){
+      .toast{
+        right:16px; left:16px; bottom: max(20px, env(safe-area-inset-bottom));
+      }
+      body{
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-top: env(safe-area-inset-top);
+      }
+    }
+    
+    /* Motion-respectful interactions (applies everywhere but harmless) */
+    @media (prefers-reduced-motion: reduce){
+      .cta:hover, .btn.primary:hover{ transform:none; }
+      .toast{ transition:none; }
+    }
+
     
   </style>
   <!-- Optional: Analytics (uncomment and replace) -->
