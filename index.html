@@ -50,9 +50,57 @@
 
     .pricing{display:grid;gap:16px}
     @media(min-width:900px){.pricing{grid-template-columns:repeat(3,1fr)}}
-    .plan{padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+
+    <div class="pricing">
+      <div class="plan">
+        <div class="tag">Starter</div>
+        <div class="small muted" style="margin-top:6px">Pre-seed / idea stage</div>
+        <div class="price">$499/mo</div>
+        <p class="muted">For pre-seed / idea-stage</p>
+        <ul>
+          <li>Baseline financial model</li>
+          <li>Monthly KPI email</li>
+          <li>Deck review (lite)</li>
+          <li>Email support</li>
+        </ul>
+        <p class="small muted" style="margin-top:10px">Avg. kickoff in 7 days.</p>
+      </div>
+    
+      <div class="plan" style="border-color:rgba(126,100,237,.5); position:relative">
+        <span class="tag" style="position:absolute;top:12px;right:12px">Most popular</span>
+        <div class="tag" style="visibility:hidden;height:0;padding:0;margin:0;border:0"></div>
+        <div class="small muted" style="margin-top:6px">Early revenue</div>
+        <div class="price">$1,999/mo</div>
+        <p class="muted">For early revenue</p>
+        <ul>
+          <li>Custom model + scenarios</li>
+          <li>Pricing Desk reset</li>
+          <li>GTM Experiment Lab</li>
+          <li>Bi-weekly working session</li>
+        </ul>
+        <p class="small muted" style="margin-top:10px">Bi-weekly sessions. Board-ready outputs.</p>
+      </div>
+    
+      <div class="plan">
+        <div class="tag">Bio/Robotics Pro</div>
+        <div class="small muted" style="margin-top:6px">Bio & Robotics specialty</div>
+        <div class="price">from $4,999/mo</div>
+        <p class="muted">Specialized support</p>
+        <ul>
+          <li>Trial budget or robotics BOM</li>
+          <li>Vendor/CRO shortlists & RFQs</li>
+          <li>Board-ready pack</li>
+          <li>Priority access</li>
+        </ul>
+        <p class="small muted" style="margin-top:10px">Specialist team; scope-based.</p>
+      </div>
+    </div>
+
+    
+    
+    /* .plan{padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
     .plan .price{font-size:28px;font-weight:800}
-    .plan ul{margin:12px 0 0;padding:0 0 0 18px}
+    .plan ul{margin:12px 0 0;padding:0 0 0 18px} */
 
     .logos{display:flex;gap:20px;flex-wrap:wrap;align-items:center;opacity:.85}
     .logo-pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}
@@ -65,6 +113,7 @@
     /* Toast notification */
     .toast{position:fixed;right:20px;bottom:20px;background:rgba(15,21,48,.95);color:#e5e7eb;border:1px solid #1f2a44;padding:12px 14px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px);transition:opacity .25s ease, transform .25s ease;z-index:1000}
     .toast.show{opacity:1;transform:translateY(0)}
+    .small{font-size:12px}
   </style>
   <!-- Optional: Analytics (uncomment and replace) -->
   <!-- <script defer data-domain="foundaire.com" src="https://plausible.io/js/script.js"></script> -->
