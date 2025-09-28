@@ -35,6 +35,13 @@
     .btn{padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));font-weight:600}
     .btn.primary{border-color:rgba(126,100,237,.5);background:linear-gradient(180deg,rgba(126,100,237,.25),rgba(126,100,237,.12));box-shadow:0 10px 30px rgba(126,100,237,.15)}
 
+    /* —— Rec #9: contrast, tap targets, focus —— */
+    .btn,.cta{min-height:48px;line-height:1.2}
+    .btn.primary{border-color:#7E64ED} /* clearer boundary on brand buttons for contrast */
+    .btn:focus-visible,.cta:focus-visible,a:focus-visible{
+      outline:2px dashed #7E64ED; outline-offset:3px; border-radius:12px;
+    }
+
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
     .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:16px;padding:18px}
@@ -114,6 +121,13 @@
     .toast{position:fixed;right:20px;bottom:20px;background:rgba(15,21,48,.95);color:#e5e7eb;border:1px solid #1f2a44;padding:12px 14px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px);transition:opacity .25s ease, transform .25s ease;z-index:1000}
     .toast.show{opacity:1;transform:translateY(0)}
     .small{font-size:12px}
+
+    /* —— Rec #10: mobile spacing rhythm —— */
+    @media (max-width: 640px){
+      section{padding:56px 0}
+      .hero{padding:96px 0 56px}
+      .btn,.cta{padding:14px 18px}
+    }
   </style>
   <!-- Optional: Analytics (uncomment and replace) -->
   <!-- <script defer data-domain="foundaire.com" src="https://plausible.io/js/script.js"></script> -->
@@ -174,27 +188,27 @@
           <div class="card">
             <span class="tag">Finance</span>
             <h3>Financial Model + CFO Rhythm</h3>
-            <p class="muted">Clean, flexible model, monthly KPI pack, runway & burn alerts. Board‑ready from day one.</p>
+            <p class="muted">Clean, flexible model, monthly KPI pack, runway & burn alerts. Board-ready from day one.</p>
           </div>
           <div class="card">
             <span class="tag">Pricing</span>
             <h3>Pricing Desk</h3>
-            <p class="muted">Rapid price studies, test plan, willingness‑to‑pay survey, and new packaging that converts.</p>
+            <p class="muted">Rapid price studies, test plan, willingness-to-pay survey, and new packaging that converts.</p>
           </div>
           <div class="card">
             <span class="tag">GTM</span>
             <h3>Experiment Lab (4 weeks)</h3>
-            <p class="muted">Ten bite‑size experiments across channels, offers, and pages. We set the cadence; you get signal.</p>
+            <p class="muted">Ten bite-size experiments across channels, offers, and pages. We set the cadence; you get signal.</p>
           </div>
           <div class="card">
             <span class="tag">Fundraising</span>
             <h3>Deck & Data Room Upgrade</h3>
-            <p class="muted">Narrative, metrics, and proof. Clean data room with a live health score to de‑risk diligence.</p>
+            <p class="muted">Narrative, metrics, and proof. Clean data room with a live health score to de-risk diligence.</p>
           </div>
           <div class="card">
             <span class="tag">Contracts</span>
             <h3>Contract & Negotiation Coach</h3>
-            <p class="muted">Upload terms → get plain‑English risks, redlines, and negotiation scripts for common scenarios.</p>
+            <p class="muted">Upload terms → get plain-English risks, redlines, and negotiation scripts for common scenarios.</p>
           </div>
           <div class="card">
             <span class="tag">Vertical</span>
@@ -209,7 +223,7 @@
       <div class="container">
         <h2 class="section-title">Simple process</h2>
         <div class="grid cols-3">
-          <div class="card"><h3>1) Diagnose</h3><p class="muted">20‑min call → goals, bottlenecks, and the one metric that matters right now.</p></div>
+          <div class="card"><h3>1) Diagnose</h3><p class="muted">20-min call → goals, bottlenecks, and the one metric that matters right now.</p></div>
           <div class="card"><h3>2) Sprint</h3><p class="muted">2–4 weeks of focused work. You get weekly updates and visible progress.</p></div>
           <div class="card"><h3>3) Operating Rhythm</h3><p class="muted">Monthly KPI pack, cadence, and playbooks to keep the wins compounding.</p></div>
         </div>
@@ -223,7 +237,7 @@
           <div class="plan">
             <div class="tag">Starter</div>
             <div class="price">$499/mo</div>
-            <p class="muted">For pre‑seed / idea‑stage</p>
+            <p class="muted">For pre-seed / idea-stage</p>
             <ul>
               <li>Baseline financial model</li>
               <li>Monthly KPI email</li>
@@ -239,7 +253,7 @@
               <li>Custom model + scenarios</li>
               <li>Pricing Desk reset</li>
               <li>GTM Experiment Lab</li>
-              <li>Bi‑weekly working session</li>
+              <li>Bi-weekly working session</li>
             </ul>
           </div>
           <div class="plan">
@@ -249,7 +263,7 @@
             <ul>
               <li>Trial budget or robotics BOM</li>
               <li>Vendor/CRO shortlists & RFQs</li>
-              <li>Board‑ready pack</li>
+              <li>Board-ready pack</li>
               <li>Priority access</li>
             </ul>
           </div>
@@ -267,7 +281,7 @@
             <a class="btn primary" href="https://outlook.office365.com/owa/calendar/Foundaire@torqarc.com/bookings/" target="_blank" rel="noopener">
               Book a free 20-min founder consult
             </a>
-          <div class="note" style="margin-top:8px">Opens in a new tab.</div>
+          <div class="note" style="margin-top:16px">Opens in a new tab.</div>
         </div>
       </div>
     </section>
@@ -321,7 +335,7 @@
             <h3>Prefer email?</h3>
             <p class="muted">hello@foundaire.com</p>
             <h3>Where</h3>
-            <p class="muted">United States • Remote‑first</p>
+            <p class="muted">United States • Remote-first</p>
             <h3>Social</h3>
             <p class="muted"><a href="#">LinkedIn</a> · <a href="#">YouTube</a> · <a href="#">X</a></p>
           </div>
@@ -330,10 +344,17 @@
     </section>
   </main>
 
+  <!-- —— Rec #12: footer utility row —— -->
   <footer class="footer">
-    <div class="container" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <div class="container" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
       <div>© <span id="y"></span> Foundaire</div>
-      <div><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></div>
+      <div class="muted">We reply within 24 hours.</div>
+      <div>
+        <a href="mailto:hello@foundaire.com">hello@foundaire.com</a> ·
+        <a href="#book">Book now</a> ·
+        <a href="/privacy">Privacy</a> ·
+        <a href="/terms">Terms</a>
+      </div>
     </div>
   </footer>
 
