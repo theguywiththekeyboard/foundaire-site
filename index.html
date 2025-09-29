@@ -203,6 +203,16 @@
       margin-left:2px;       /* nudges the pill off the edge a touch more */
     }
 
+    /* Keep the logos list on a uniform background */
+    #logos{
+      position: relative;
+      background: var(--bg);          /* solid, matches your site bg */
+      z-index: 0;                     /* new stacking context */
+    }
+    #logos .container{ position: relative; z-index: 1; }
+    
+    /* (Optional) a touch more bottom space so the last pill never sits on a seam */
+    #logos{ padding-bottom: 56px; }
 
 
 
