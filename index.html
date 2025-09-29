@@ -254,6 +254,47 @@
       .toast{ transition:none; }
     }
 
+
+
+  /* === Gradient seam fix: stable, viewport-anchored overlay === */
+
+    /* 1) Solid base; remove gradients from body */
+    body{
+      background: var(--bg) !important;
+    }
+    
+    /* 2) Add a fixed overlay behind everything for the decorative gradients */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      z-index: -1;                 /* stays behind all content */
+      pointer-events: none;
+      /* same look as before, but anchored to the viewport so it won't "slice" sections */
+      background:
+        radial-gradient(1200px 600px at 70% -10%, rgba(126,100,237,.15), transparent),
+        radial-gradient(900px 500px at 0% 0%, rgba(86,179,255,.12), transparent);
+    }
+    
+    /* 3) (Optional) Slightly soften or disable on small screens to avoid banding */
+    @media (max-width: 640px){
+      body::before{
+        background:
+          radial-gradient(900px 450px at 70% -10%, rgba(126,100,237,.12), transparent),
+          radial-gradient(700px 380px at 0% 0%, rgba(86,179,255,.10), transparent);
+      }
+      /* If you prefer *no* gradients on very small phones, uncomment below:
+      body::before{ background: none; }
+      */
+    }
+
+    
+    /* Optional per-section solid surface */
+    #logos, #pricing { background: var(--bg); }
+
+
+
+
     
   </style>
   <!-- Optional: Analytics (uncomment and replace) -->
