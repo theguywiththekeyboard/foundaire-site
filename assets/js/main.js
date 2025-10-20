@@ -20,3 +20,13 @@ if ('onhashchange' in window) {
   });
 }
 
+// shrink header on scroll
+const header = document.querySelector('.site-header');
+let last = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY || document.documentElement.scrollTop;
+  if (!header) return;
+  if (y > 24 && y > last) header.classList.add('is-compact');
+  else if (y < 10) header.classList.remove('is-compact');
+  last = y;
+});
