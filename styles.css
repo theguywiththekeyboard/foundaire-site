@@ -100,7 +100,7 @@ a:hover{text-decoration:underline}
   .footer-bottom{flex-direction:column;gap:6px}
 }
 
-.header-brand { width: 80px; }     /* example parent */
+.header-brand { width: 50px; }     /* example parent */
 .header-brand img {
   max-width: 100%;
   height: auto;
