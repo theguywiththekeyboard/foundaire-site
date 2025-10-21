@@ -100,9 +100,9 @@ a:hover{text-decoration:underline}
   .footer-bottom{flex-direction:column;gap:6px}
 }
 
-/* .logo {
-  height: clamp(28px, 4vw, 56px); /* min, fluid, max */
-  /* width: auto;                    /* keeps aspect ratio */
-  /* vertical-align: middle;
-} */
+.header-brand { width: 240px; }     /* example parent */
+.header-brand img {
+  max-width: 100%;
+  height: auto;
+}
 
