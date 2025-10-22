@@ -127,3 +127,29 @@ a:hover{text-decoration:underline}
   letter-spacing: .01em;
 }
 
+/* keep */
+img, svg { display: inline-block; }
+
+/* ADD: constrain intrinsic 1024×1024 SVGs so they don’t blow up */
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Size the big decorative logo in the hero */
+.hero-logo {
+  display: block;
+  width: clamp(180px, 28vw, 380px);   /* pick a max that fits your layout */
+  margin: 0 auto 0 0;                 /* align left; change to auto for centered */
+}
+
+/* If you pasted the SVG inline inside .hero-logo, ensure it obeys the container */
+.hero-logo svg {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Current: grid-template-columns: 1.4fr .9fr; */
+.hero-grid { grid-template-columns: 1.3fr .8fr; }
+
+
