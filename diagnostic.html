@@ -86,15 +86,22 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <div class="brand-row">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5" fill="#7E64ED"/>
+      <a class="brand brand--small" href="/index.html" aria-label="Foundaire home">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1-footer" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#7E64ED"/>
+              <stop offset="100%" stop-color="#9FA6FF"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#g1-footer)"/>
           <path d="M8 15l3-6 3 6M9 13h6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <strong>Foundaire</strong>
-      </div>
+        <span>Foundaire</span>
+      </a>
       <p class="muted">Biotech FP&amp;A.</p>
     </div>
+
     <div class="footer-links">
       <div>
         <h4>Company</h4>
@@ -115,11 +122,13 @@
       </div>
     </div>
   </div>
+
   <div class="container footer-bottom">
     <span>&copy; 2025 Foundaire. All rights reserved.</span>
     <span class="muted">Built for early–mid stage U.S. biotech sponsors.</span>
   </div>
 </footer>
+
 
 </body>
 </html>
