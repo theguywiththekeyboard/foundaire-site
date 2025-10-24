@@ -205,6 +205,56 @@
           }
         </style>
 
+      
+        <style>
+          /* Card layout + consistent insets */
+          .slab{
+            display:flex;
+            flex-direction:column;
+            gap:12px;                /* even vertical rhythm */
+            padding:24px 28px;       /* balanced insets (L/R a touch wider) */
+          }
+        
+          /* Tighten heading spacing */
+          .slab h3{
+            margin:0 0 8px 0;        /* no unexpected top/left shift */
+            line-height:1.2;
+          }
+        
+          /* Make sure the button shares the same left edge */
+          .slab .btn{
+            align-self:flex-start;    /* prevents full-width stretch in some resets */
+            margin:0;                 /* kill any global margin-left */
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+          }
+        
+          /* Subcopy sits on the same left edge, with small top gap */
+          .slab .muted.small{
+            margin:4px 0 0 0;        /* remove left indent, tiny top gap */
+          }
+        
+          /* Optional: slightly tighten the card shadow to reduce the optical “float”
+             that can make the button feel offset */
+          .slab{
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+          }
+        
+          /* If your page grid needs a crisper column layout */
+          .container.split{
+            display:grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: clamp(24px, 6vw, 56px);
+            align-items:start;
+          }
+          @media (max-width: 820px){
+            .container.split{
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+
 
 
 
