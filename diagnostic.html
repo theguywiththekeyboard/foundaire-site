@@ -74,43 +74,89 @@
     </div>
     <aside class="slab">
       <h3>Book now</h3>
-
-
-
-
-
-      <!-- Button on index.html -->
-      <a href="#schedule" id="bookDiagBtn" class="btn btn-primary">Book a 30-min FP&A Diagnostic</a>
       
-      <!-- Minimal modal -->
-      <div id="schedule" class="modal" aria-hidden="true">
-        <div class="modal-dialog">
-          <button class="close" aria-label="Close">×</button>
-          <div class="calendly-inline-widget" 
-               data-url="https://calendly.com/foundaire/30-min-diagnostic" 
-               style="min-width:320px;height:740px;"></div>
+        <!-- Button on index.html -->
+        <a href="#schedule" id="bookDiagBtn" class="btn btn-primary">Book a 30-min FP&A Diagnostic</a>
+        
+        <!-- Minimal modal -->
+        <div id="schedule" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+          <div class="modal-dialog">
+            <button class="close" aria-label="Close" type="button">×</button>
+            <div
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/foundaire/fpa-diagnostic?utm_source=website"
+              style="min-width:320px;height:740px;"></div>
+          </div>
         </div>
-      </div>
-      
-      <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <script>
-        // Lightweight modal toggle + GTM event
-        const modal = document.getElementById('schedule');
-        document.getElementById('bookDiagBtn').addEventListener('click', e => {
-          e.preventDefault();
-          modal.setAttribute('aria-hidden','false');
-          window.dataLayer = window.dataLayer || [];
-          dataLayer.push({event:'book_diagnostic_open', source:'hero_button'});
-        });
-        modal.querySelector('.close').addEventListener('click', () => modal.setAttribute('aria-hidden','true'));
-      </script>
-      
-      <style>
-        .modal[aria-hidden="true"]{display:none}
-        .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:9999}
-        .modal-dialog{background:#fff;max-width:960px;width:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.2);padding:0;overflow:hidden}
-        .modal .close{position:absolute;top:.75rem;right:.75rem;background:none;border:0;font-size:1.5rem;cursor:pointer}
-      </style>
+        
+        <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <script>
+          const modal = document.getElementById('schedule');
+          const dialog = modal.querySelector('.modal-dialog');
+          const openBtn = document.getElementById('bookDiagBtn');
+          const closeBtn = modal.querySelector('.close');
+        
+          const openModal = () => {
+            modal.setAttribute('aria-hidden', 'false');
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'book_diagnostic_open', source: 'hero_button' });
+          };
+        
+          const closeModal = () => {
+            modal.setAttribute('aria-hidden', 'true');
+          };
+        
+          // Open via button
+          openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+          });
+        
+          // Close via X
+          closeBtn.addEventListener('click', closeModal);
+        
+          // Close on ESC
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+              closeModal();
+            }
+          });
+        </script>
+        
+        <style>
+          .modal[aria-hidden="true"] { display: none; }
+          .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 9999;
+          }
+          .modal-dialog {
+            position: relative; /* <-- make absolute children (the X) anchor here */
+            background: #fff;
+            max-width: 960px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,.2);
+            padding: 0;
+            overflow: hidden;
+          }
+          .modal .close {
+            position: absolute;
+            top: .75rem;
+            right: .75rem;
+            background: none;
+            border: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+          }
+        </style>
+
 
 
 
