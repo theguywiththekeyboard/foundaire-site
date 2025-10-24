@@ -74,14 +74,15 @@
     </div>
     <aside class="slab">
       <h3>Book now</h3>
-      
         <!-- Button on index.html -->
         <a href="#schedule" id="bookDiagBtn" class="btn btn-primary">Book a 30-min FP&A Diagnostic</a>
         
         <!-- Minimal modal -->
         <div id="schedule" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
-          <div class="modal-dialog">
-            <button class="close" aria-label="Close" type="button">×</button>
+          <div class="modal-dialog" role="document">
+            <button class="close" aria-label="Close" type="button" title="Close dialog">
+              ×
+            </button>
             <div
               class="calendly-inline-widget"
               data-url="https://calendly.com/foundaire/30-min-diagnostic"
@@ -100,10 +101,14 @@
             modal.setAttribute('aria-hidden', 'false');
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({ event: 'book_diagnostic_open', source: 'hero_button' });
+            // Move focus to dialog for a11y
+            dialog.setAttribute('tabindex', '-1');
+            dialog.focus();
           };
         
           const closeModal = () => {
             modal.setAttribute('aria-hidden', 'true');
+            openBtn.focus();
           };
         
           // Open via button
@@ -121,6 +126,11 @@
               closeModal();
             }
           });
+        
+          // Close on backdrop click (but not clicks inside the dialog)
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+          });
         </script>
         
         <style>
@@ -136,7 +146,7 @@
             z-index: 9999;
           }
           .modal-dialog {
-            position: relative; /* <-- make absolute children (the X) anchor here */
+            position: relative; /* anchor for the X */
             background: #fff;
             max-width: 960px;
             width: 100%;
@@ -144,18 +154,46 @@
             box-shadow: 0 10px 40px rgba(0,0,0,.2);
             padding: 0;
             overflow: hidden;
+            outline: none; /* we'll manage focus styles on the button */
           }
+        
+          /* Ensure Calendly sits under the close button */
+          .calendly-inline-widget {
+            position: relative;
+            z-index: 1;
+            display: block;
+          }
+        
+          /* Prominent, always-clickable close button */
           .modal .close {
             position: absolute;
-            top: .75rem;
-            right: .75rem;
-            background: none;
+            top: .5rem;
+            right: .5rem;
+            z-index: 3;                   /* higher than the iframe */
+            width: 36px;
+            height: 36px;
             border: 0;
-            font-size: 1.5rem;
+            border-radius: 999px;
+            background: rgba(0,0,0,.06);
+            font-size: 22px;
             line-height: 1;
+            display: grid;
+            place-items: center;
             cursor: pointer;
+            user-select: none;
+            transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+          }
+          .modal .close:hover {
+            background: rgba(0,0,0,.12);
+            transform: scale(1.04);
+          }
+          .modal .close:focus-visible {
+            outline: 2px solid #7E64ED;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(126,100,237,.25);
           }
         </style>
+
 
 
 
