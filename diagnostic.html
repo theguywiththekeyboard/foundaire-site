@@ -192,6 +192,17 @@
             outline-offset: 2px;
             box-shadow: 0 0 0 3px rgba(126,100,237,.25);
           }
+
+            /* Nudge the X a bit inward from the right edge */
+          #schedule .close {
+            right: 1rem;   /* was .5rem */
+            top: .75rem;   /* optional: a hair lower for balance */
+          }
+        
+          /* Slightly more space on wider screens */
+          @media (min-width: 640px) {
+            #schedule .close { right: 1.25rem; }
+          }
         </style>
 
 
