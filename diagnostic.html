@@ -74,13 +74,37 @@
     </div>
     <aside class="slab">
       <h3>Book now</h3>
-      <form class="form" name="diagnostic" method="POST" data-netlify="true">
+
+
+      <section class="card">
+        <h2>Book now</h2>
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/foundaire/30-min-diagnostic"
+             style="min-width:320px;height:740px;"></div>
+      </section>
+      <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <script>
+        // Fire conversion when Calendly confirms a booking
+        window.addEventListener('message', function(e) {
+          if (e.data?.event === 'calendly.event_scheduled') {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event:'book_diagnostic_scheduled'});
+          }
+        });
+      </script>
+
+      
+        <!-- <form class="form" name="diagnostic" method="POST" data-netlify="true">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="you@biotech.co" required>
         <input type="text" name="company" placeholder="Company">
         <textarea name="notes" rows="6" placeholder="Context, goals, timelines"></textarea>
         <button class="btn btn-primary" type="submit">Request a time</button>
-      </form>
+      </form> -->
+
+
+
+      
       <p class="muted small">Prefer email? <a class="link" href="mailto:hello@foundaire.com">hello@foundaire.com</a></p>
     </aside>
   </section>
