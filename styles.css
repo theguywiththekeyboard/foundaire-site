@@ -66,6 +66,115 @@ main>section{padding:64px 0}
 .checklist{margin:0 0 8px 0;padding-left:18px}
 .checklist li{margin:6px 0}
 
+
+
+
+/* Added on 20251102 */
+
+/* ===== Hero image variant ===== */
+.hero{
+  padding:96px 0 56px;
+  background:linear-gradient(180deg,#F8FAFF,transparent);
+  position:relative;
+}
+
+/* When a background image is used */
+.hero.has-bg{
+  /* Use a CSS variable so you can set the image inline per page */
+  background-image: var(--hero-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Full-bleed feel */
+  min-height: 86vh;
+  padding: 0;               /* we’ll space via inner container */
+  display: flex;
+  align-items: center;      /* vertically center content */
+}
+
+/* Dark overlay for readability */
+.hero.has-bg::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25));
+  /* tweak the first rgba() for more/less darkness (e.g., .45–.65) */
+}
+
+/* Ensure content sits above overlay and has breathing room */
+.hero.has-bg .container{
+  position: relative; z-index: 1;
+  padding: clamp(48px, 8vh, 96px) 0;
+}
+
+/* Two-column layout you already have, kept as-is */
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.4fr .9fr;
+  gap:36px;
+  align-items:center;
+}
+
+/* Make text legible on dark overlay */
+.hero.has-bg h1,
+.hero.has-bg .lead,
+.hero.has-bg .eyebrow,
+.hero.has-bg .trust-row span{
+  color:#fff;
+}
+
+/* Keep your serif headline scale */
+.hero h1{
+  font-size:3rem;
+  line-height:1.05;
+  margin:8px 0 8px;
+  font-family:'Source Serif 4',serif;
+  letter-spacing:-.01em;
+}
+
+/* Buttons: ghost on dark background needs a lighter border/text */
+.btn-ghost.btn-ghost--on-dark{
+  background:transparent;
+  border-color: rgba(255,255,255,.35);
+  color:#fff;
+}
+.btn-ghost.btn-ghost--on-dark:hover{
+  border-color: rgba(255,255,255,.55);
+}
+
+/* Keep your existing white card visible above overlay */
+.hero-card{
+  background:var(--card);
+  padding:22px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+  position: relative; z-index:1;
+}
+
+/* Trust row readable on dark */
+.trust-row{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.trust-row span{
+  font-weight:600;
+  opacity:.95;
+}
+
+/* Responsiveness preserved */
+@media (max-width: 980px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero.has-bg{min-height: 72vh}
+}
+@media (max-width: 680px){
+  .hero.has-bg .container{padding:56px 0}
+}
+
+
+/* Added on 20251102 */
+
+
+
+
 /* Big decorative logo in hero (only if you render it) */
 .hero-mark{display:block;width:clamp(180px,28vw,380px)}
 .hero-mark svg{width:100%;height:auto}
