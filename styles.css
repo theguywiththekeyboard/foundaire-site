@@ -153,10 +153,10 @@ main>section{padding:64px 0}
 }
 
 
-.hero {
-  padding: 96px 0 56px;
+.hero{
+  padding:96px 0 56px;
   background:
     linear-gradient(180deg,#F8FAFF,transparent),
-    url("/assets/foundaire-hero-2400.webp") center/cover no-repeat;
+    url("/assets/foundaire-hero_svg.svg") center/cover no-repeat;
 }
 
