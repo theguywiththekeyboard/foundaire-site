@@ -1,36 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1400" preserveAspectRatio="xMidYMid slice">
-  <!-- Base -->
-  <rect width="2400" height="1400" fill="#EEE8FF"/>
-
-  <!-- Large soft facets -->
-  <polygon points="0,0 1200,0 900,520 0,380" fill="#E9E2FF"/>
-  <polygon points="1200,0 2400,0 2400,360 1560,300" fill="#E4DDFF"/>
-  <polygon points="0,380 900,520 720,860 0,1080" fill="#F2EEFF"/>
-  <polygon points="1560,300 2400,360 2400,860 1780,760" fill="#EDE7FF"/>
-
-  <!-- Central star-ish intersection -->
-  <polygon points="900,520 1560,300 1680,760 720,860" fill="#E6E0FF"/>
-  <polygon points="900,520 1200,0 1560,300" fill="#EFE9FF" opacity=".7"/>
-
-  <!-- Radiating facets (lighter) -->
-  <polygon points="720,860 1680,760 1320,980 600,980" fill="#F3F0FF"/>
-  <polygon points="0,1080 720,860 600,980 0,1400" fill="#F6F3FF"/>
-  <polygon points="1680,760 2400,860 2400,1400 1320,980" fill="#F1EEFF"/>
-
-  <!-- Subtle diagonal beams -->
-  <polygon points="0,0 320,0 720,860 600,980 0,1080" fill="#DCD3FF" opacity=".16"/>
-  <polygon points="2400,0 2080,0 1680,760 1780,760 2400,360" fill="#D8CFFF" opacity=".16"/>
-  <polygon points="1200,0 1320,0 1680,760 1560,760" fill="#D5CBFF" opacity=".14"/>
-
-  <!-- Bottom fades -->
-  <polygon points="0,1400 600,980 1320,980 2400,1400" fill="#FBFAFF" opacity=".8"/>
-
-  <!-- Very soft vignette -->
   <defs>
-    <radialGradient id="v" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".0"/>
-      <stop offset="100%" stop-color="#CFC7FF" stop-opacity=".18"/>
+    <!-- Very light tints derived from #6A50DA (purple) and #1D665D (teal) -->
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#6A50DA"/>
+      <stop offset="100%" stop-color="#1D665D"/>
+    </linearGradient>
+
+    <!-- Soft vignette to keep edge contrast gentle -->
+    <radialGradient id="v" cx="50%" cy="40%" r="85%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#6A50DA" stop-opacity=".12"/>
     </radialGradient>
   </defs>
+
+  <!-- Base (very light lavender with a hint of brand) -->
+  <rect width="2400" height="1400" fill="#F4F2FF"/>
+
+  <!-- Large facets (mix of light purple/teal tints) -->
+  <polygon points="0,0 1200,0 900,520 0,380"        fill="#EEE9FF"/>
+  <polygon points="1200,0 2400,0 2400,360 1560,300" fill="#E6F2EF"/>
+  <polygon points="0,380 900,520 720,860 0,1080"    fill="#F6F3FF"/>
+  <polygon points="1560,300 2400,360 2400,860 1780,760" fill="#EAF5F2"/>
+
+  <!-- Central intersection (slightly stronger but still light) -->
+  <polygon points="900,520 1560,300 1680,760 720,860" fill="#ECE7FF"/>
+  <polygon points="900,520 1200,0 1560,300"           fill="#E8F3F0" opacity=".8"/>
+
+  <!-- Radiating lighter facets -->
+  <polygon points="720,860 1680,760 1320,980 600,980" fill="#F7F5FF"/>
+  <polygon points="0,1080 720,860 600,980 0,1400"     fill="#FAF9FF"/>
+  <polygon points="1680,760 2400,860 2400,1400 1320,980" fill="#F2FCF9" opacity=".9"/>
+
+  <!-- Subtle diagonal beams using brand gradient (keep thin + low opacity) -->
+  <polygon points="0,0 320,0 720,860 600,980 0,1080" fill="url(#brand)" opacity=".16"/>
+  <polygon points="2400,0 2080,0 1680,760 1780,760 2400,360" fill="url(#brand)" opacity=".16"/>
+  <polygon points="1200,0 1320,0 1680,760 1560,760" fill="url(#brand)" opacity=".14"/>
+
+  <!-- Gentle brand wash across the whole canvas -->
+  <rect width="2400" height="1400" fill="url(#brand)" opacity=".06"/>
+
+  <!-- Very soft vignette for edges -->
   <rect width="2400" height="1400" fill="url(#v)"/>
 </svg>
