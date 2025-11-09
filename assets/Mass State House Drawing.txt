@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="480" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Stick-figure drawing of the Massachusetts State House</title>
+  <desc id="desc">Minimal line-art: steps, colonnade, pediment, and a domed roof with lantern and flagpole.</desc>
+
+  <!-- Style -->
+  <g fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Steps -->
+    <path d="M40 180 H280" />
+    <path d="M50 172 H270" />
+    <path d="M60 164 H260" />
+
+    <!-- Colonnade base -->
+    <rect x="70" y="140" width="180" height="24" />
+
+    <!-- Columns (simple vertical lines) -->
+    <g>
+      <path d="M85 140 V164" />
+      <path d="M100 140 V164" />
+      <path d="M115 140 V164" />
+      <path d="M130 140 V164" />
+      <path d="M145 140 V164" />
+      <path d="M160 140 V164" />
+      <path d="M175 140 V164" />
+      <path d="M190 140 V164" />
+      <path d="M205 140 V164" />
+      <path d="M220 140 V164" />
+      <path d="M235 140 V164" />
+    </g>
+
+    <!-- Entablature -->
+    <rect x="70" y="132" width="180" height="8" />
+
+    <!-- Pediment (triangle) -->
+    <path d="M70 132 L160 104 L250 132 Z" />
+
+    <!-- Drum (circular base for dome) -->
+    <rect x="130" y="96" width="60" height="12" />
+
+    <!-- Dome (arc) -->
+    <path d="M130 96
+             Q160 56 190 96" />
+
+    <!-- Lantern on top of dome -->
+    <rect x="154" y="48" width="12" height="10" />
+    <path d="M160 38 V48" />
+
+    <!-- Flagpole (stylized) -->
+    <path d="M208 88 V64" />
+    <path d="M208 68 h16 l-10 6 l10 6 h-16" />
+
+    <!-- Side wings (hinted outlines) -->
+    <rect x="40" y="148" width="30" height="20" />
+    <rect x="250" y="148" width="30" height="20" />
+
+    <!-- Simple fence hint (tick marks) -->
+    <g>
+      <path d="M40 188 H280" />
+      <path d="M50 188 V192" />
+      <path d="M60 188 V192" />
+      <path d="M70 188 V192" />
+      <path d="M80 188 V192" />
+      <path d="M90 188 V192" />
+      <path d="M100 188 V192" />
+      <path d="M110 188 V192" />
+      <path d="M120 188 V192" />
+      <path d="M130 188 V192" />
+      <path d="M140 188 V192" />
+      <path d="M150 188 V192" />
+      <path d="M160 188 V192" />
+      <path d="M170 188 V192" />
+      <path d="M180 188 V192" />
+      <path d="M190 188 V192" />
+      <path d="M200 188 V192" />
+      <path d="M210 188 V192" />
+      <path d="M220 188 V192" />
+      <path d="M230 188 V192" />
+      <path d="M240 188 V192" />
+      <path d="M250 188 V192" />
+      <path d="M260 188 V192" />
+      <path d="M270 188 V192" />
+    </g>
+
+  </g>
+</svg>
