@@ -1,9 +1,9 @@
 <svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6666B3"/>
+      <stop offset="0%" stop-color="#4747C3"/>
       <stop offset="50%" stop-color="#AD74D1"/>
-      <stop offset="100%" stop-color="#FC97F0"/>
+      <stop offset="100%" stop-color="#FF60DF"/>
     </linearGradient>
   </defs>
 
@@ -11,11 +11,6 @@
   <rect x="4" y="4" width="248" height="248" rx="26" fill="url(#bgGradient)"/>
 
   <!-- Stylized "F" - 10% smaller and centered -->
-  <!-- Order of transforms (right to left):
-       1) translate(16 -4): recenter F's internal bbox to (0,0)
-       2) scale(0.9): make it 10% smaller around its center
-       3) rotate(-17): keep your original tilt
-       4) translate(128 128): put the center in the middle of the icon -->
   <g fill="#FFFFFF" transform="translate(128 128) rotate(-17) scale(0.9) translate(16 -4)">
     <rect x="-60" y="-64" width="120" height="32" rx="8" />
     <rect x="-76" y="-12" width="120" height="32" rx="8" />
