@@ -12,8 +12,8 @@
 
   <!-- Stylized "F" -->
   <g fill="#FFFFFF" transform="translate(128 128) rotate(-17)">
-    <rect x="-72" y="-64" width="144" height="32" rx="16" />
-    <rect x="-72" y="-12" width="144" height="32" rx="16" />
-    <rect x="-52" y="40"  width="104" height="32" rx="16" />
+    <rect x="-60" y="-64" width="144" height="32" rx="16" />
+    <rect x="-50" y="-12" width="144" height="32" rx="16" />
+    <rect x="-40" y="40"  width="84" height="32" rx="16" />
   </g>
 </svg>
