@@ -8,7 +8,7 @@
   </defs>
 
   <!-- Rounded square background -->
-  <rect x="4" y="4" width="248" height="248" rx="48" fill="url(#bgGradient)"/>
+  <rect x="4" y="4" width="248" height="248" rx="26" fill="url(#bgGradient)"/>
 
   <!-- Stylized "F" -->
   <g fill="#FFFFFF" transform="translate(128 128) rotate(-17)">
