@@ -20,7 +20,7 @@
 
   <!-- Gradient band around the box (25% narrower) -->
   <rect x="4" y="4" width="248" height="248" rx="26"
-        fill="none" stroke="url(#borderGradient)" stroke-width="4.5"/>
+        fill="none" stroke="url(#borderGradient)" stroke-width="3.5"/>
 
   <!-- Stylized "F" - 10% smaller and centered -->
   <g fill="#FFFFFF" transform="translate(128 128) rotate(-17) scale(0.9) translate(16 -4)">
